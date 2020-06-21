@@ -11,10 +11,4 @@ Mongoose.connect(MONGO_URL, {
 });
 const db = Mongoose.connection;
 
-db.then(result => {
-  console.log("Connected to DB:", result.name);
-}).catch(err => {
-  console.log("DB Connection Failed");
-});
-
 module.exports = db;

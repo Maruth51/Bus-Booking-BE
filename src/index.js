@@ -9,8 +9,8 @@ const busRouter = require("./routes/busRouter");
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cors());
-app.use("/bus", busRouter);
 
+app.use("/bus", busRouter);
 app.use("/", indexRouter);
 
 //invalid route

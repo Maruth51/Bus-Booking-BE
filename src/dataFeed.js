@@ -6,6 +6,12 @@ while (i < 10) {
   feed();
   i = i + 1;
 }
+
+// function update() {
+//   Bus.updateMany({}, { time: randomDate(Date.now(), Date.now(), 1, 23) })
+//     .then(data => console.log(data))
+//     .catch(e => console.log(e));
+// }
 function feed() {
   console.log("feed");
   let name = [
@@ -35,7 +41,41 @@ function feed() {
     type: busType[Math.floor(Math.random() * busType.length)],
     time: randomDate(Date.now(), Date.now(), 1, 23),
     fare: Math.floor(400 + Math.random() * (1200 - 400)),
-    rating: Math.floor(2 + Math.random() * (5 - 2))
+    rating: Math.floor(2 + Math.random() * (5 - 2)),
+    seat: [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
   };
   Bus.create(bus)
     .then(data => {
@@ -48,8 +88,8 @@ function randomDate(first, last, startHour, endHour) {
   var date = new Date(+first + Math.random() * (last - first));
   var hour = (startHour + Math.random() * (endHour - startHour)) | 0;
   date.setHours(hour);
-  let start = date;
-  date.setHours(date.getHours() + 5);
+  let start = new Date(date);
+  date.setHours(date.getHours() + (5 + Math.random() * 5));
   let end = date;
   return { start, end };
 }

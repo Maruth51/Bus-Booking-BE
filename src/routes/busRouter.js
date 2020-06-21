@@ -36,10 +36,12 @@ router
     try {
       const { seat, busId } = req.body;
       const bus = await Bus.findById(busId, { seat: 1 });
-      const newSeat = bus.seat.map((ele, ind) =>{
+      const newSeat = bus.seat.map((ele, ind) => {
         if (seat.includes(ind + 1)) {
-          if (ele) {res.status(401).send("Seat not available")};
-          else {
+          if (ele) {
+            res.status(401).send("Seat not available");
+            return ele;
+          } else {
             return true;
           }
         } else {

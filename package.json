@@ -4,7 +4,7 @@
   "description": "Node.js example server starter project",
   "main": "src/index.js",
   "scripts": {
-    "start": "npm install; node src/index.js"
+    "start": "nodemon src/index.js"
   },
   "dependencies": {
     "axios": "0.19.2",
@@ -13,10 +13,6 @@
     "mongoose": "5.9.19",
     "morgan": "1.10.0"
   },
-  "engines": {
-    "node": "12.x"
-  },
-
   "devDependencies": {
     "nodemon": "1.18.4"
   },

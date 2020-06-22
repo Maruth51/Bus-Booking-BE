@@ -6,7 +6,7 @@ const morgan = require("morgan");
 const indexRouter = require("./routes/indexRouter");
 const busRouter = require("./routes/busRouter");
 
-app.use(morgan("tiny"));
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
 
@@ -17,6 +17,6 @@ app.use("/", indexRouter);
 app.use((req, res) => {
   res.status(404).send("Requested url not found");
 });
-const server = app.listen(process.env.port, () => {
+const server = app.listen(process.env.PORT, () => {
   console.log(`server running on ${server.address().port} `);
 });

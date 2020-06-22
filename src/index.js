@@ -17,6 +17,6 @@ app.use("/", indexRouter);
 app.use((req, res) => {
   res.status(404).send("Requested url not found");
 });
-const server = app.listen(process.env.PORT || 3000, () => {
-  console.log(`server runnin on ${server.address().port} `);
+const server = app.listen(process.env.port, () => {
+  console.log(`server running on ${server.address().port} `);
 });

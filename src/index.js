@@ -5,12 +5,14 @@ const app = express();
 const morgan = require("morgan");
 const indexRouter = require("./routes/indexRouter");
 const busRouter = require("./routes/busRouter");
+const userRouter = require("./routes/userRouter");
 
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
 
 app.use("/bus", busRouter);
+app.use("/user", userRouter);
 app.use("/", indexRouter);
 
 //invalid route
